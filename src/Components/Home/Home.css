@@ -1,0 +1,20 @@
+
+
+
+.product-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tagline{
+    padding: 10px;
+    font-size: 30px;
+    margin-top: 18px;
+    margin-left: 70px;
+}
+
+.no-movies-message{
+    margin-left: 600px;
+    margin-top: 50px;
+}

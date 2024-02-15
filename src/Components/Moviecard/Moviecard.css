@@ -1,0 +1,59 @@
+.card{
+    width: 18em;
+    margin: 26px;
+}
+h5{
+    cursor: pointer;
+    color: #3d9dcc;
+}
+.rating{
+    color: gold;
+}
+
+.description{
+    display: none;
+}
+
+.rating-mrp{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-img-top{
+    margin: 15px 0px 15px 0px;
+    height: 350px;
+  width: 350px;
+  object-fit: contain;
+}
+
+.card-title{
+    height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-title:hover {
+    height: auto;
+    overflow: visible;
+    white-space: normal;
+  }
+.mrp{
+    font-weight: bold;
+    color: #3d9dcc;
+    
+}
+
+.card-title{
+    color: #3d9dcc;
+}
+
+.card-bottom{
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-between;
+}
+
+
+
+

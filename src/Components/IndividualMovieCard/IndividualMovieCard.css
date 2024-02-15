@@ -1,0 +1,116 @@
+/* IndividualMovieCard.css */
+
+.individual-card {
+    max-width: 800px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+}
+
+.individual-card img {
+    width: 400px; 
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+    margin-bottom: 10px; /* Adjust margin for better spacing */
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.individual-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #050505; /* Darken text color */
+}
+
+.movie-info {
+    margin-bottom: 10px; /* Adjust margin for better spacing */
+    display: flex;
+}
+
+.movie-info label {
+    /* font-weight: bold; */
+    color: #1a1919; /* Darken label color */
+    min-width: 80px; /* Set a minimum width for label */
+    margin-right: 8px; /* Add right margin for spacing */
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.movie-info span {
+    margin-left: 8px;
+    color: #1d3c97; /* Slightly darken text color */
+    font-size: 15px;
+}
+
+.movie-description {
+    margin-bottom: 10px; /* Adjust margin for better spacing */
+    color: #333; /* Darken text color */
+}
+.indi-page{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.spinner{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin-left: 700px;
+    margin-top: 300px;
+}
+
+.info-card{
+    margin-left: 50px;
+    max-width: 300px;
+}
+
+.theater-card{
+    margin-right: 300px;
+    margin-top: 20px;
+
+    .theater-name {
+        list-style: none; /* Remove bullet points */
+        padding: 0;
+        margin: 0;
+    
+        li {
+          margin-bottom: 10px; /* Add margin between items */
+        }
+    
+        a {
+          display: block;
+          padding: 8px 12px;
+          background-color: #57a8cc;
+          color: #fff;
+          text-decoration: none; /* Remove underline */
+          border: 1px solid #57a8cc;
+          border-radius: 4px;
+          transition: background-color 0.3s ease;
+    
+          &:hover {
+            background-color: #488ba8;
+          }
+        }
+      }
+}
+
+.login{
+    font-size: 30px;
+    margin-top: 200px;
+    
+    
+}
+
+.login a{
+    color: #37697e;  
+    border-radius: 15px;
+    padding: 10px;
+    
+}
+.login a:hover{
+    color: #e92727;
+}

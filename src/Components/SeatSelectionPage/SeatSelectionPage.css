@@ -1,0 +1,101 @@
+/* SeatSelectionPage.css */
+
+.seat-selection-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.seat-selection-container h5 {
+  border: 2px;
+  color: #555;
+  margin-bottom: 20px;
+  cursor: auto;
+}
+
+.screen {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.screen img {
+  margin-top: 50px;
+  margin-left: -10px;
+}
+
+.seat-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 826px;
+  overflow-x: auto; /* Apply overflow handling for seats */
+  white-space: nowrap; /* Prevent seats from wrapping to the next line */
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid #57a8cc;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #57a8cc;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #2b9e8b;
+    color: #fcfbfb;
+  }
+}
+
+/* Display only 5 seats in a row */
+.seat:nth-child(5n + 1) {
+  margin-left: 631px;
+}
+
+.seat.selected {
+  background-color: #2b9e8b; /* Green color for selected seats */
+  color: #fcfbfb;
+}
+
+.seat.reserved {
+  background-color: #555; /* Red color for reserved seats */
+}
+
+.legend {
+  display: flex; 
+  justify-content: center;
+  margin-bottom: 20px;
+  
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+  margin-left: -438px;
+  margin-top: 20px;
+}
+
+.legend-label {
+  margin-left: 5px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #2b9e8b;
+    color: #fcfbfb;
+  }
+}
+
+button:disabled {
+  background-color: #ccc; /* Gray color for disabled button */
+  cursor: not-allowed;
+}
