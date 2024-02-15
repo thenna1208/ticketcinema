@@ -1,0 +1,148 @@
+views
+class SeatListView(APIView):
+    def get(self, request):
+        seats = Seat.objects.all()
+        serializer = SeatSerializer(seats, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = SeatSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class SeatDetailView(APIView):
+    def get(self, request, seat_id):
+        seat = get_object_or_404(Seat, id=seat_id)
+        serializer = SeatSerializer(seat)
+        return Response(serializer.data)
+
+    def put(self, request, seat_id):
+        seat = get_object_or_404(Seat, id=seat_id)
+        serializer = SeatSerializer(seat, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, seat_id):
+        seat = get_object_or_404(Seat, id=seat_id)
+        seat.delete()
+        return Response({"message": "Seat deleted"}, status=status.HTTP_204_NO_CONTENT)
+
+class BookingListView(APIView):
+    def get(self, request):
+        bookings = Booking.objects.all()
+        serializer = BookingSerializer(bookings, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = BookingSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class BookingDetailView(APIView):
+    def get(self, request, booking_id):
+        booking = get_object_or_404(Booking, id=booking_id)
+        serializer = BookingSerializer(booking)
+        return Response(serializer.data)
+    
+    
+class TicketListView(APIView):
+    # permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        tickets = Ticket.objects.all()
+        serializer = TicketSerializer(tickets, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class TicketCreateView(APIView):
+    # permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = TicketSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    
+    
+    
+    
+class TheaterListView(APIView):
+    def get(self, request):
+        theaters = Theater.objects.all()
+        serializer = TheaterSerializer(theaters, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = TheaterSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class TheaterDetailView(APIView):
+    def get(self, request, theater_id):
+        theater = get_object_or_404(Theater, id=theater_id)
+        serializer = TheaterSerializer(theater)
+        return Response(serializer.data)
+
+    def put(self, request, theater_id):
+        theater = get_object_or_404(Theater, id=theater_id)
+        serializer = TheaterSerializer(theater, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, theater_id):
+        theater = get_object_or_404(Theater, id=theater_id)
+        theater.delete()
+        return Response({"message": "Theater deleted"}, status=status.HTTP_204_NO_CONTENT)
+
+class MovieTheatersView(APIView):
+    def get(self, request, movie_id):
+        try:
+            movie = Movie.objects.get(id=movie_id)
+            theaters = Theater.objects.filter(movies__id=movie_id)
+            serializer = TheaterSerializer(theaters, many=True)
+            return Response(serializer.data)
+        except Movie.DoesNotExist:
+            return Response({"error": "Movie not found"}, status=status.HTTP_404_NOT_FOUND)  
+    
+class ScreeningListView(APIView):
+    def get(self, request):
+        screenings = Screening.objects.all()
+        serializer = ScreeningSerializer(screenings, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = ScreeningSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ScreeningDetailView(APIView):
+    def get(self, request, screening_id):
+        screening = get_object_or_404(Screening, id=screening_id)
+        serializer = ScreeningSerializer(screening)
+        return Response(serializer.data)
+
+    def put(self, request, screening_id):
+        screening = get_object_or_404(Screening, id=screening_id)
+        serializer = ScreeningSerializer(screening, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, screening_id):
+        screening = get_object_or_404(Screening, id=screening_id)
+        screening.delete()
+        return Response({"message": "Screening deleted"}, status=status.HTTP_204_NO_CONTENT)
